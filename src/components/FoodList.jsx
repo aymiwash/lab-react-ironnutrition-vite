@@ -51,14 +51,13 @@ function FoodList() {
             <Search placeholder="input search text" onChange={searching} style={{ width: 200 }} />
 
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-                {isResult ? (search !== "" ? searchResult : foods).map(oneFood => {
+                {foods.length ===0 ? <NoResult/>:isResult ? (search !== "" ? searchResult : foods).map(oneFood => {
                     return (
                         <FoodBox key={oneFood.id} foodObj={oneFood} deleteFoodFunction={() => { deleteFoodFunction(oneFood.id) }} />
                     )
                 }
                 )
                 : <NoResult/>} 
-                
             </div>
         </>
     )
