@@ -3,6 +3,7 @@ import FoodBox from "./FoodBox"
 import foodsJson from "../foods.json";
 import { useState, useEffect } from "react"
 import Search from "antd/es/input/Search";
+import NoResult from "./NoResult";
 
 function FoodList() {
     const [foods, setFoods] = useState(foodsJson)
@@ -56,7 +57,8 @@ function FoodList() {
                     )
                 }
                 )
-                : "Oops, no result for this !"} 
+                : <NoResult/>} 
+                
             </div>
         </>
     )
