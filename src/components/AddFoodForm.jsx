@@ -1,5 +1,5 @@
-import { Button } from "antd";
-import Form from "antd/es/form/Form";
+import { Form, Button } from "antd";
+
 
 import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid';
@@ -25,21 +25,21 @@ function AddFoodForm({ addFunction }) {
     }
 
     return (
-        <Form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", alignItems: "center", color:"white", gap:"15px", margin: "30px"}}>
+        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", alignItems: "center", color:"white", gap:"15px", margin: "30px"}}>
             <label>Name: 
-                <input type="text" name="name" value={foodData.name} onChange={(event) => setFoodData({ ...foodData, name: event.target.value })} />
+                <input type="text" name="name" value={foodData.name} onChange={(event) => setFoodData({ ...foodData, name: event.target.value })} required/>
             </label>
             <label>Image: 
-                <input type="text" name="image" value={foodData.image} onChange={(event) => setFoodData({ ...foodData, image: event.target.value })} />
+                <input type="text" name="image" value={foodData.image} onChange={(event) => setFoodData({ ...foodData, image: event.target.value })} required/>
             </label>
             <label>Calories: 
-                <input type="number" name="calories" value={foodData.calories} onChange={(event) => setFoodData({ ...foodData, calories: event.target.value })} />
+                <input type="number" name="calories" value={foodData.calories} onChange={(event) => setFoodData({ ...foodData, calories: event.target.value })} required/>
             </label>
             <label>Servings: 
-                <input type="number" name="servings" value={foodData.servings} onChange={(event) => setFoodData({ ...foodData, servings: event.target.value })} />
+                <input type="number" name="servings" value={foodData.servings} onChange={(event) => setFoodData({ ...foodData, servings: event.target.value })} required/>
             </label>
-            <Button type="primary" htmlType="submit" style={{backgroundColor: "green", fontWeight: "bold"}}>Create</Button>
-        </Form>
+            <button type="submit" style={{backgroundColor: "green", fontWeight: "bold"}}>Create</button>
+        </form>
     )
 }
 
