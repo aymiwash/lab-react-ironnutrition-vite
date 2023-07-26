@@ -1,7 +1,9 @@
-function FoodBox({foodObj, deleteFood}) {
+import { Button, Card } from "antd"
+
+function FoodBox({foodObj, deleteFoodFunction}) {
 
     return (
-        <div >
+        <Card style={{ width: 250, margin: 10 }}>
             <p>{foodObj.name}</p>
             <img src={foodObj.image} alt={foodObj.name} style={{height : "100px"}} />
             <p>Calories: {foodObj.calories}</p>
@@ -9,8 +11,8 @@ function FoodBox({foodObj, deleteFood}) {
             <p>
                 <b>Total Calories: {foodObj.servings * foodObj.calories}</b> kcal
             </p>
-            <button onClick={deleteFood}>Delete</button>
-        </div>
+            <Button onClick={deleteFoodFunction} type="primary" style={{backgroundColor : "red", fontWeight: "bold"}}>Delete</Button>
+        </Card>
     )
 }
 
